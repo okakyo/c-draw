@@ -3,9 +3,12 @@
 #include <string.h>
 #include <math.h>
 
+#include "ps.h"
 
-#include"ps.h"
-
+/*
+	Void 型
+	ここで、デカルト座標を描写する
+*/
 
 void frame(void){
 	int n,i;
@@ -53,44 +56,13 @@ void frame(void){
 	return;
 }
 
-void drawline(void){
-	int i,nx =100;
-	double x,y,x2,y2,pi;
-	
-	x =-1.0;
-	y= 0.0;
-	y2=0.0;
-	pi = 4.0*atan(1.0);
-	
-	linewidth(1.5);
-	plot(x,y,3);
-	
-	for(i=-nx+1;i<=nx;i++){
-		x = (double) i/(double)nx;
-		y = sin(x*pi);
-		
-		plot(x,y,2);
-	}
-	
-	plot(-1.0,-0.5,3);
-	for(i=-nx+1;i<=nx;i++){
-		x2 = (double) i/(double)nx;
-		y2 = x2/2.0;
-		plot(x2,y2,2);
-	}
 
-	
-	stroke();
-	return;
-}
 
 int main(){
 	init();
 	viewport(0.2, 0.2, 0.8, 0.8);
 	xyworld(-1.2, -1.2, 1.2, 1.2);
 	frame();
-
-	drawline();
 	fin();
 	return 0;
 		
